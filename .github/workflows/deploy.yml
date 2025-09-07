@@ -36,13 +36,3 @@ jobs:
         REMOTE_HOST: ${{ secrets.SERVER_IP }}
         REMOTE_USER: ${{ secrets.SERVER_USER }}
         TARGET: "/home/portfolio/htdocs/suyunbek.uz"
-        
-    - name: Restart PM2 service
-      uses: appleboy/ssh-action@v0.1.9
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        port: 22
-        script: |
-          pm2 restart app.js
